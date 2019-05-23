@@ -49,5 +49,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/addToCart/{id}', 'CartController@addToCart');
     
     Route::resource('/addToCart', 'CartController');
+    Route::resource('/kategoriUser', 'CategoryUserController');
     
 });

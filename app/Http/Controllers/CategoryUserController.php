@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
 
-class KategoriController extends Controller
+class CategoryUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Category::get();
-        return view('kategori.indexKategori', compact('kategori'));
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('kategori.addKategori');
+        //
     }
 
     /**
@@ -36,16 +34,7 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama' => 'required',
-        ]);
-
-        $kategori = new Category;
-        $kategori->category_name = $request->nama;
-        $kategori->save();
-
-        $kategori = Category::get();
-        return view('kategori.indexKategori', compact('kategori'));
+        //
     }
 
     /**
@@ -56,7 +45,7 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -67,8 +56,7 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = Category::find($id);
-        return view('kategori.editKategori', compact('kategori'));
+        //
     }
 
     /**

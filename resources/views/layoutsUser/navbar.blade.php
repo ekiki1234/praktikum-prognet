@@ -33,7 +33,7 @@
     </ul>
     @else
     <ul id="topMenu" class="nav pull-right">
-
+		<li class=""><a href="{{ url('invoice/list') }}">Profil</a></li>
     <li class=""><a href="{{ url('invoice/list') }}">My Invoices</a></li>
     <li class=""><a href="{{ url('konfirmasi') }}">Konfirmasi Pembayaran</a></li>
 	    <a href="{{ route('logout') }}"

@@ -8,9 +8,9 @@
 	?>
 @foreach($kategoris as $kategori)
 	<?php
-		$jumlah = \DB::table('products')->where('id', $kategori->id)->where('status', 1)->get();
+		$jumlah = \DB::table('product_category_details')->where('category_id', $kategori->id)->get();
 	?>
-	<li><a href="{{ url('barang/kategori/'.$kategori->id) }}">{{$kategori->category_name}} [{{count($jumlah)}}]</a></li>
+	<li><a href="/kategori/{{$kategori->id}}">{{$kategori->category_name}} [{{count($jumlah)}}]</a></li>
 @endforeach
 </ul>
 <br/>
