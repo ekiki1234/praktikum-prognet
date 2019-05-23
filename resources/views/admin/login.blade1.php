@@ -29,7 +29,7 @@
 		<div class="top_menu row m0">
 			<div class="container-fluid">
 				<div class="float-left">
-					<p>Call Us: 012 44 5698 7456 896asdasdsadsadsdsdadsds</p>
+					<p>Call Us: 012 44 5698 7456 </p>
 				</div>
 				<div class="float-right">
 					<ul class="right_side">
