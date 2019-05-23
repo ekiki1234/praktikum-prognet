@@ -44,11 +44,15 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
         ],
-        'admin'=> [
-            'driver'=>'session',
-            'provider'=>'admins'
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'api-admin' => [
+            'driver' => 'token',
+            'provider' => 'admins',
         ],
     ],
 

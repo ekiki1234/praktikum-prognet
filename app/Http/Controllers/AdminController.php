@@ -3,72 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use Auth;
 
 class AdminController extends Controller
 {
-
-    public function create()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        return view('admin.register');
+        $this->middleware('auth:admin');
     }
 
-    public function registerAdmin(Request $request)
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-      $this->validate($request, [
-       
-       'name'=>  'required',
-       'password'=> 'required|min:6|confirmed',
-       'profile_image'=>'required',
-       'phone'=>'required',
-       'username'=>'required'
-
-    ]); 
-
-
-     Admin::create([
-          'name'=>$request->name,
-          'password'=>bcrypt($request->password),
-          'profile_image'=>$request->profile_image,
-          'phone'=>$request->phone,
-          'username'=>$request->username
-    ]);
-      return redirect()->intended('/home/admin');
+        return view('admin');
     }
 
-    public function loginAdmin()
+    public function logout()
     {
-        return view('admin.login');
+    	\Auth::logout();
+
+    	return redirect('/');
     }
-
-    public function adminAuth(Request $request)
-   {
-      $this->validate($request, [
-        'username'=>'required',
-        'password'=>'required'
-      ]);
-     $username = $request->username;
-     $password = $request->password;
-     $remember = $request->remember_token;
-
-     if(Auth::guard('admin')->attempt(['username'=> $username, 'password'=> $password], $remember)){
-       return redirect()->intended('/home/admin');
-      } else {
-         return redirect()->back()->with('warning', 'Invalid Username or Password');
-      }
-    }
-
-  public function home()
-  {
-    return view('adminHome');
-  }
-
-  public function logout()
-  {
-    Auth::guard('admin')->logout();
-
-    return redirect('/login/admin'); 
-  }
-
 }
