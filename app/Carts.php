@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class Carts extends Authenticatable
 {
     use Notifiable;
 
@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'user_id','product_id','qty','status',
     ];
 
     /**
@@ -24,7 +24,11 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
 }

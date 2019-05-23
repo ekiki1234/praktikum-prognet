@@ -16,10 +16,12 @@
 // });
 
 Auth::routes();
+    
+Auth::routes(['verify' => true]);
 
 Route::resource('/', 'BerandaController');
 Route::get('show/{id}', 'BerandaController@show');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/addToCart/destroy', 'CartController@destroy');
 Route::get('/shopping-cart/update/{id}', 'CartController@update');
 Route::get('/shopping-cart/kurangi/{id}', 'CartController@kurangi');

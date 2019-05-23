@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use Cart;
+use App\Carts;
 use App\Products;
 
 class CartController extends Controller
@@ -17,6 +18,15 @@ class CartController extends Controller
         Cart::add(['id'=>$barang->id, 'name'=>$barang->product_name, 'qty'=>1, 'price'=>$barang->price]);
     
         Session::flash('pesan', 'Barang berhasil di masukkan ke keranjang');
+
+        $cart = new Carts;
+        $cart->user_id = $request->nama;
+        $cart->product_id = $barang->id;
+        $cart->qty = $request->deskripsi;
+        $cart->created_at = date('Y-m-d H:i:s');
+        $cart->updated_at = date('Y-m-d H:i:s');
+        $cart->status = 'notyet';
+
     
         // $request->session()->put('cart', $cart);
         // dd($request->session()->get('cart'));

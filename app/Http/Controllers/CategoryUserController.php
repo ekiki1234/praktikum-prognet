@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\ProductImage;
+use App\Products;
+use App\CategoryDetail;
 
 class CategoryUserController extends Controller
 {
@@ -45,7 +49,9 @@ class CategoryUserController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        
+        return view('categoryDetail', compact('productsJoin', 'image', 'barangs'));
     }
 
     /**

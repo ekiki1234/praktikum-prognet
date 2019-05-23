@@ -10,7 +10,7 @@
 	<?php
 		$jumlah = \DB::table('product_category_details')->where('category_id', $kategori->id)->get();
 	?>
-	<li><a href="/kategori/{{$kategori->id}}">{{$kategori->category_name}} [{{count($jumlah)}}]</a></li>
+	<li><a href="/kategoriUser/{{$kategori->id}}">{{$kategori->category_name}} [{{count($jumlah)}}]</a></li>
 @endforeach
 </ul>
 <br/>
