@@ -80,7 +80,12 @@ class KurirController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kurir = Couriers::find($id);
+        $kurir->courier = $request->nama;
+        $kurir->save();
+
+        $kurir = Couriers::get();
+        return view('kurir.indexKurir', compact('kurir'));
     }
 
     /**

@@ -24,7 +24,7 @@
                 <tr>
                   <td>{{ $barang->name }}</td>
 				  <td>
-					<div class="input-append"><input disabled="" class="span1" style="max-width:34px" placeholder="{{ $barang->qty }}" id="appendedInputButtons" size="16" type="text"><button rowId="{{ $barang->rowId }}" class="btn kurangi-qty" type="button"><i class="icon-minus"></i></button>
+					<div class="input-append"><input disabled="" class="span1" style="max-width:34px" placeholder="{{ $barang->qty }}" name="qty" id="appendedInputButtons" size="16" type="text"><button rowId="{{ $barang->rowId }}" class="btn kurangi-qty" type="button"><i class="icon-minus"></i></button>
 						<a href="{{ $barang->rowId }}" class="btn add-qty"><i class="icon-plus"></i></a>				
 					</div>
 				  </td>

@@ -18,20 +18,61 @@ class CartController extends Controller
         Cart::add(['id'=>$barang->id, 'name'=>$barang->product_name, 'qty'=>1, 'price'=>$barang->price]);
     
         Session::flash('pesan', 'Barang berhasil di masukkan ke keranjang');
-
+        $inputToCart['user_id']=Auth::id();
         $cart = new Carts;
-        $cart->user_id = $request->nama;
-        $cart->product_id = $barang->id;
-        $cart->qty = $request->deskripsi;
+        $cart->user_id = $inputToCart["user_id"];
+        $cart->product_id = $id;
+        $cart->product_id = $request->qty;
         $cart->created_at = date('Y-m-d H:i:s');
         $cart->updated_at = date('Y-m-d H:i:s');
         $cart->status = 'notyet';
 
-    
-        // $request->session()->put('cart', $cart);
-        // dd($request->session()->get('cart'));
-        // dd(Cart::content());
         return redirect()->back();
+    }
+
+    public function addToCarts(Request $request){
+        
+        $inputToCart=$request->all();
+        Session::forget('discount_amount_price');
+        Session::forget('coupon_code');
+        // if($inputToCart['size']==""){
+        //     return back()->with('message','Please select Size');
+        // }else{
+            $stockAvailable=$inputToCart['stock'];
+            if($stockAvailable>=$inputToCart['quantity']){
+                $inputToCart['user_id']=Auth::id();
+                $count_duplicateItems=Cart::where('product_id',$inputToCart['product_id'])->where('user_id',$inputToCart['user_id'])->where('status','notyet')->count();
+                if($count_duplicateItems>0){
+                    return back()->with('message','This Item Added already');
+                }else{
+                    
+                    
+                    // return($cart);
+                    return back()->with('success','Add To Cart Already');
+                }
+            }else{
+                return back()->with('message','Stock is not Available!');
+            }
+        // }
+    }
+
+    public function checkout(Request $request)
+    {
+
+        $keranjang = Cart::content();
+    	
+
+        foreach ($keranjang as $carts) {
+    		$inputToCart['user_id']=Auth::id();
+            $cart = new Carts;
+            $cart->user_id = $inputToCart["user_id"];
+            $cart->product_id = $carts->id;
+            $cart->qty = $carts->qty;
+            $cart->status = 'notyet';
+            $cart->save();
+    	}
+        
+    	return view('cart.checkout');
     }
 
     public function update($rowId)
@@ -81,7 +122,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputToCart['user_id']=Auth::id();
+        $cart = new Carts;
+        $cart->user_id = $inputToCart["user_id"];
+        $cart->product_id = $id;
+        $cart->product_id = $request->qty;
+        $cart->created_at = date('Y-m-d H:i:s');
+        $cart->updated_at = date('Y-m-d H:i:s');
+        $cart->status = 'notyet';
     }
 
     /**

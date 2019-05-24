@@ -48,14 +48,7 @@
 			<div class="span6">
 				<h3>{{ $barang->product_name }}  </h3>
 				<hr class="soft"/>
-				<form class="form-horizontal qtyFrm">
-				  <div class="control-group">
-					<label class="control-label"><span>Rp. {{ number_format($barang->price, 0) }}</span></label>
-					<div class="controls">
-					  <a href="{{ url('add-to-cart/') }}" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></a>
-					</div>
-				  </div>
-				</form>
+
 				{!! $barang->description !!}
 				<br class="clr"/>
 			<a href="#" name="detail"></a>

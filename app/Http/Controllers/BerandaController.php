@@ -50,11 +50,16 @@ class BerandaController extends Controller
      */
     public function show($id)
     {
+        $detail_product=Products::select('products.id', 'product_name','product_rate','description','stock','price','image_name','product_category_details.category_id')
+        	->join('product_images','products.id','=','product_images.product_id')
+        	->join('product_category_details','products.id','=','product_category_details.product_id')
+        	->groupBy('products.id')->where('products.id',$id)
+        	->get()->first();
         $image = ProductImage::all();
         $images = ProductImage::where('product_id', $id)->get();
         $barangs = Products::orderBy('id', 'asc')->where('status', 1)->get();
         $barang = Products::find($id);
-        return view('barang.detailBarangUser', compact('barangs', 'image', 'barang', 'images'));
+        return view('barang.detailBarangUser', compact('barangs', 'image', 'barang', 'images','detail_product'));
     }
 
     /**

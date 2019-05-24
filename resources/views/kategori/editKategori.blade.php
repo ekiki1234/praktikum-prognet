@@ -5,8 +5,9 @@
 <div class="box box-primary">
     <!-- /.box-header -->
     <!-- form start -->
-    <form role="form" method="POST" action="{{ url('kategori/update/'.$kategori->kategori_id) }}">
-    	{{csrf_field()}}
+    <form role="form" method="POST" action="/kategori/{{$kategori->id}}">
+    @csrf
+      @method("PUT")
       <div class="box-body">
         <div class="form-group">
           <label for="exampleInputEmail1">Nama Kategori</label>

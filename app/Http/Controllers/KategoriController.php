@@ -80,7 +80,12 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori = Category::find($id);
+        $kategori->category_name = $request->nama;
+        $kategori->save();
+
+        $kategori = Category::get();
+        return view('kategori.indexKategori', compact('kategori'));
     }
 
     /**
