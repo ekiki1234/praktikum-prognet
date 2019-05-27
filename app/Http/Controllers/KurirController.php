@@ -96,6 +96,10 @@ class KurirController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kurirs = Couriers::find($id);
+        $kurirs->status = 0;
+        $kurirs_>save();
+        $kurir = Couriers::get();
+        return view('kurir.indexKurir', compact('kurir'));
     }
 }

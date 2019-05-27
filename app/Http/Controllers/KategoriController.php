@@ -96,6 +96,12 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $kategoris = Category::find($id);
+        $kategoris->status = 0;
+        $kategoris->save();
+        
+        $kategori = Category::all();
+        return view('kategori.indexKategori', compact('kategori'));
     }
 }

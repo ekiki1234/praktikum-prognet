@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4aeb8631feaa25fc92be5348c355150",
+    "content-hash": "00b105b1eb39bb849aa2bf3aef346675",
     "packages": [
+        {
+            "name": "agungjk/rajaongkir",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agungjk/rajaongkir.git",
+                "reference": "280415f91276daec51dd3809ede5dbcfe81a781b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agungjk/rajaongkir/zipball/280415f91276daec51dd3809ede5dbcfe81a781b",
+                "reference": "280415f91276daec51dd3809ede5dbcfe81a781b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Agungjk\\Rajaongkir\\RajaOngkirServiceProvider"
+                    ],
+                    "aliases": {
+                        "RajaOngkir": "Agungjk\\Rajaongkir\\RajaOngkirFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Agungjk\\Rajaongkir\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Agung Jati Kusumo",
+                    "email": "agungjk.social@gmail.com"
+                }
+            ],
+            "description": "Raja Ongkir API Wrapper for Laravel 5",
+            "keywords": [
+                "application programming interface",
+                "laravel",
+                "rajaongkir",
+                "wrapper"
+            ],
+            "time": "2018-02-08T07:32:40+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -1027,16 +1079,16 @@
         },
         {
             "name": "lcobucci/jwt",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "8866a58fa866f6872f2a6ea0e04ad56480f0f440"
+                "reference": "a11ec5f4b4d75d1fcd04e133dede4c317aac9e18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/8866a58fa866f6872f2a6ea0e04ad56480f0f440",
-                "reference": "8866a58fa866f6872f2a6ea0e04ad56480f0f440",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/a11ec5f4b4d75d1fcd04e133dede4c317aac9e18",
+                "reference": "a11ec5f4b4d75d1fcd04e133dede4c317aac9e18",
                 "shasum": ""
             },
             "require": {
@@ -1078,7 +1130,7 @@
                 "JWS",
                 "jwt"
             ],
-            "time": "2019-05-22T09:44:23+00:00"
+            "time": "2019-05-24T18:30:49+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1350,16 +1402,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.1",
+            "version": "v4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0"
+                "reference": "1bd73cc04c3843ad8d6b0bfc0956026a151fc420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/5221f49a608808c1e4d436df32884cbc1b821ac0",
-                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1bd73cc04c3843ad8d6b0bfc0956026a151fc420",
+                "reference": "1bd73cc04c3843ad8d6b0bfc0956026a151fc420",
                 "shasum": ""
             },
             "require": {
@@ -1397,7 +1449,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-02-16T20:54:15+00:00"
+            "time": "2019-05-25T20:07:01+00:00"
         },
         {
             "name": "opis/closure",

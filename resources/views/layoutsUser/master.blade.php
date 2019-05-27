@@ -32,7 +32,7 @@
 <!-- Sidebar end=============================================== -->
 		<?php
 			$barangs = \DB::table('products')->inRandomOrder()->limit(12)->get();
-			$barangsActive = \DB::table('products')->where('status', 1)->inRandomOrder()->limit(4)->get();
+			$barangsActive = \DB::table('products')->inRandomOrder()->limit(4)->get();
 		?>
 		
 
@@ -90,5 +90,54 @@
 	<!-- Themes switcher section ============================================================================================= -->
 
 <span id="themesBtn"></span>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="{{asset('frontEnd/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('frontEnd/js/jquery.scrollUp.min.js')}}"></script>
+<script src="{{asset('frontEnd/js/price-range.js')}}"></script>
+<script src="{{asset('frontEnd/js/jquery.prettyPhoto.js')}}"></script>
+<script src="{{asset('frontEnd/js/main.js')}}"></script>
+<script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
+<script src="{{asset('frontEnd/js/select2.min.js')}}"></script>
+<script>
+    // Instantiate EasyZoom instances
+    var $easyzoom = $('.easyzoom').easyZoom();
+
+    // Setup thumbnails example
+    var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+    $('.thumbnails').on('click', 'a', function(e) {
+        var $this = $(this);
+
+        e.preventDefault();
+
+        // Use EasyZoom's `swap` method
+        api1.swap($this.data('standard'), $this.attr('href'));
+    });
+
+    // Setup toggles example
+    var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
+
+    $('.toggle').on('click', function() {
+        var $this = $(this);
+        if ($this.data("active") === true) {
+            $this.text("Switch on").data("active", false);
+            api2.teardown();
+        } else {
+            $this.text("Switch off").data("active", true);
+            api2._init();
+        }
+    });
+
+    $(document).ready(function() { 
+            $("select").select2(); 
+
+    });
+    var token='{{ Session::token() }}';
+</script>
+
+
 </body>
 </html>

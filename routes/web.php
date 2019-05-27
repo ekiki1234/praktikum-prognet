@@ -25,8 +25,13 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/addToCart/destroy', 'CartController@destroy');
 Route::get('/shopping-cart/update/{id}', 'CartController@update');
 Route::get('/shopping-cart/kurangi/{id}', 'CartController@kurangi');
-Route::get('/shopping-cart/checkout', 'CartController@checkout');
+Route::get('/shopping-cart/checkout', 'CheckOutController@index');
+Route::get('/shopping-cart/bayar', 'CartController@bayar');
 Route::post('/addToCarts','CartController@addToCarts')->name('addToCart');
+Route::get('/check-shipping','CheckOutController@checkshipping');
+Route::get('/order-review','OrderController@index');
+Route::get('/cod','OrderController@cod');
+
 
 
 Route::group(['prefix' => 'admin'], function() {
@@ -55,7 +60,4 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('/addToCart', 'CartController');
     Route::resource('/kategoriUser', 'CategoryUserController');
 
-    
-    
-    
 });

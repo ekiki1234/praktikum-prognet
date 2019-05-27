@@ -17,7 +17,7 @@ class BerandaController extends Controller
     public function index()
     {
         $image = ProductImage::all();
-        $barangs = Products::orderBy('id', 'asc')->where('status', 1)->get();
+        $barangs = Products::orderBy('id', 'asc')->get();
         return view('userHome', compact('barangs', 'image'));
     }
 
@@ -57,7 +57,7 @@ class BerandaController extends Controller
         	->get()->first();
         $image = ProductImage::all();
         $images = ProductImage::where('product_id', $id)->get();
-        $barangs = Products::orderBy('id', 'asc')->where('status', 1)->get();
+        $barangs = Products::orderBy('id', 'asc')->get();
         $barang = Products::find($id);
         return view('barang.detailBarangUser', compact('barangs', 'image', 'barang', 'images','detail_product'));
     }

@@ -34,7 +34,7 @@
                 @endforeach
                 <tr>
                 	<th class="text-center" colspan="3">Total</th>
-                	<td class="label label-important">{{ Cart::total() }}</td>
+                	<td class="label label-important">{{ Cart::subtotal() }}</td>
                 </tr>
 				</tbody>
             </table>

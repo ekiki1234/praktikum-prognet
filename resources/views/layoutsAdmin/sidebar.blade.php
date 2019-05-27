@@ -17,8 +17,6 @@
               <ul class="treeview-menu">
                 <li><a href="{{ url('barang') }}"><i class="fa fa-circle-o"></i> Daftar Semua Barang</a>
                 </li>
-                <li><a href="{{ url('barang/habis') }}"><i class="fa fa-circle-o"></i> Daftar Barang Yang Habis</a>
-                </li>
                 <li><a href="{{ url('barang/create') }}"><i class="fa fa-circle-o"></i> Tambah Barang</a>
                 </li>
                 </li>

@@ -7,7 +7,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>belum isi</h3>
+              <h3></h3>
 
               <p>Barang</p>
             </div>
@@ -22,7 +22,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>belum isi</h3>
+              <h3></h3>
 
               <p>Pesanan</p>
             </div>
